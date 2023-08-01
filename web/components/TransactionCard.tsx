@@ -65,7 +65,7 @@ const TransactionCard: React.FC<TransactionCardProps> = ({
         <div className='flex flex-row w-full justify-between'>
           <div className='flex w-fit flex-col items-start justify-center'>
             <p className='text-sm font-medium text-bright-grey-1'>Rate/hr</p>
-            <p className='text-sm font-normal text-white'>{ethers.utils.formatEther(amount)} FTM</p>
+            <p className='text-sm font-normal text-white'>{ethers.utils.formatEther(amount)} Celo</p>
           </div>
           {/* <div className='flex w-fit flex-col items-start justify-center'>
             <p className='text-sm font-medium text-bright-grey-1'>Total Earns</p>

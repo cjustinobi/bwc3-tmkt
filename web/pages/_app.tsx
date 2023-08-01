@@ -5,31 +5,22 @@ import Layout from "../components/Layout";
 import "../styles/globals.css";
 import "@rainbow-me/rainbowkit/styles.css";
 // import { SessionProvider } from "next-auth/react"
-import { fantom, fantomTestnet, polygonMumbai } from "viem/chains";
+import { celo } from "viem/chains";
 import { publicProvider } from 'wagmi/providers/public';
 
-// import {
-//   Montserrat,
-// } from '@next/font/google';
 
-// const montserrat =   Montserrat({
-//   subsets: ['latin'],
-//   // this will be the css variable
-//   variable: '--font-montserrat',
-//   // weight: ['400']
-// });
 
 
 const projectId = process.env.NEXT_PUBLIC_PROJECTID as string // get one at https://cloud.walletconnect.com/app
 
 const { chains, publicClient } = configureChains(
-  [fantom, fantomTestnet, polygonMumbai],
+  [celo],
   // [jsonRpcProvider({ rpc: (chain) => ({ http: chain.rpcUrls.default.http[0] }) })]
   [publicProvider()]
 );
   
 const { connectors } = getDefaultWallets({
-  appName: 'My RainbowKit App',
+  appName: 'Talent Mkt',
   projectId: projectId,
   chains
 });

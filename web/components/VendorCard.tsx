@@ -52,11 +52,11 @@ const VendorCard: React.FC<VendorCardProps> = ({
         <div className='flex flex-row w-full justify-between'>
           <div className='flex w-fit flex-col items-start justify-center'>
             <p className='text-sm font-medium leading-5 text-bright-grey-1'>Rate/hr</p>
-            <p className='text-sm font-normal leading-5 text-white'>{ethers.utils.formatEther(price)} FTM</p>
+            <p className='text-sm font-normal leading-5 text-white'>{ethers.utils.formatEther(price)} Celo</p>
           </div>
           <div className='flex w-fit flex-col items-start justify-center'>
             <p className='text-sm font-medium leading-5 text-bright-grey-1'>Total Earns</p>
-            <p className='text-sm font-normal leading-5 text-white'>{ethers.utils.formatEther(earnings)} FTM</p>
+            <p className='text-sm font-normal leading-5 text-white'>{ethers.utils.formatEther(earnings)} Celo</p>
           </div>
         </div>
         <div className='flex flex-row w-full justify-between'>

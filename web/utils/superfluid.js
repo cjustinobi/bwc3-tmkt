@@ -7,7 +7,7 @@ export const createNewFlow = async (recipient, amount) => {
   const signer = provider.getSigner()
 
   const sf = await Framework.create({
-    chainId: 80001,
+    chainId: 42220,
     provider: provider
   })
 
@@ -16,7 +16,7 @@ export const createNewFlow = async (recipient, amount) => {
   })
 
   
-const maticx = await sf.loadSuperToken("MATICx")
+const maticx = await sf.loadSuperToken("CELOx")
 
   const approveOperation = maticx.approve({ receiver: recipient, amount: ethers.utils.parseUnits(amount).toString() });
 
