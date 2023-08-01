@@ -2,7 +2,7 @@ require('dotenv').config()
 require('@nomiclabs/hardhat-waffle')
 require("@nomicfoundation/hardhat-toolbox")
 
-const PRIVATE_KEY = process.env.PRIVATE_KEY
+const { API_URL, PRIVATE_KEY } = process.env
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -13,21 +13,16 @@ module.exports = {
       runs: 200
     }
   },
+  defaultNetwork: "mumbai",
   networks: {
-    mainnet: {
-      url: 'https://rpcapi.fantom.network',
-      chainId: 250,
-      accounts: [PRIVATE_KEY]
+    mumbai: {
+      url: API_URL,
+      accounts: [`0x${PRIVATE_KEY}`]
     },
-    testnet: {
-      url: 'https://rpc.testnet.fantom.network',
-      chainId: 4002,
-      accounts: [PRIVATE_KEY]
-    }
-  },
-  etherscan: {
-    apiKey: {
-      opera: "FUVX96N1IWNNKBZEV6EESMDPAATP9H5CB1"
-    }
-  },
+    etherscan: {
+      apiKey: {
+        opera: "FUVX96N1IWNNKBZEV6EESMDPAATP9H5CB1"
+      }
+    },
+  }
 }

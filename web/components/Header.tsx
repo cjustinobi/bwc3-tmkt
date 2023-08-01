@@ -3,9 +3,18 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline"
 import { ConnectButton } from "@rainbow-me/rainbowkit"
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { useState } from 'react'
+import CreateAccountModal from "./CreateAccountModal"
 
 export default function Header() {
   const router = useRouter()
+
+  const [accountModal, setAccountModal] = useState(false)
+
+  const hideModal = () => {
+    setAccountModal(false)
+  }
+
     return (
       <Disclosure as="nav" className="bg-[#1e1e1e] border-b border-black">
         {({ open }) => (
@@ -25,7 +34,7 @@ export default function Header() {
                 </div>
                 <div className="flex flex-1 justify-between">
                   <div className="flex flex-shrink-0 items-center text-gray-100">
-                    <Link href="/" className="font-semibold">Dev Mkt</Link>
+                    <Link href="/" className="font-semibold">Talent Mkt</Link>
                     {/*<Image className="block h-8 w-auto sm:block lg:block" src="/logo.svg" width="24" height="24" alt="Celo Logo" />*/}
                   </div>
                   <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
@@ -44,11 +53,20 @@ export default function Header() {
                   </div>
                 
                   <div className="flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                    <button onClick={() => setAccountModal(true)} className="bg-gradient-to-b from-blue-1 to-green-1 text-white font-bold py-2 px-4 rounded-[10px] mr-4 ml-2">
+                      Create Account
+                    </button>
                     <ConnectButton showBalance={{smallScreen: true, largeScreen: false}} />
                   </div>
                 </div>
               </div>
             </div>
+            {accountModal && <div className="fixed inset-0 flex items-center justify-center z-[1065]">
+              <div onClick={() => setAccountModal(false)} className="fixed inset-0 bg-gray-800 opacity-90"></div>
+              <div className="bg-black p-6 rounded-md shadow-lg z-10">
+                <CreateAccountModal hideModal={hideModal} />
+              </div>
+            </div>}
             <Disclosure.Panel className="sm:hidden">
               <div className="space-y-1 pt-2 pb-4">
                 <Disclosure.Button

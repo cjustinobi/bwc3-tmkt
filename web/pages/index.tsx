@@ -5,7 +5,6 @@ import { useProvider, useSigner, useAccount } from 'wagmi'
 import { getVendors } from '../utils'
 import VendorCard from '../components/VendorCard'
 import CreateAccountModal from "@/components/CreateAccountModal";
-import Stream from "@/components/Stream";
 
 interface UserData {
   id: string;
@@ -45,7 +44,6 @@ const Home = () => {
           Your One-Stop Spot for Freelance
           <span className='bg-clip-text text-transparent bg-gradient-to-b from-blue-1 to-green-1'>Talent</span>
         </p>
-        <Stream />
         <p className="text-lg my-4 md:px-[48px] lg:px-40 font-light leading-normal text-center text-white">
           Find the perfect freelancer for your project and pay them easily and securely using our platform's smart contract technology
         </p>

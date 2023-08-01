@@ -4,7 +4,8 @@ import {
   approve,
   cancelService,
   timestampToDate,
-  STATUS
+  STATUS,
+  createNewFlow
 } from '../utils'
 
 interface TransactionCardProps {
@@ -36,6 +37,7 @@ const TransactionCard: React.FC<TransactionCardProps> = ({
    }) => {
 
   const approveHandler = async () => {
+    await createNewFlow(vendor, amount)
     await approve(id.toString(), vendor)
     getTransactionsHandler()
   }

@@ -15,7 +15,7 @@ const CreateAccountModal: React.FC<CreateAccountModalProps> = ({hideModal}) => {
   const [service, setService] = useState('')
   const [price, setPrice] = useState('')
   const [description, setDescription] = useState('')
-  const [image, setImage] = useState('')
+  const [image, setImage] = useState('https://github.com/kelektiv/node.bcrypt.js/actions/workflows/ci.yaml/badge.svg')
 
   const createAccountHandler = async () => {
     setLoading(true)
