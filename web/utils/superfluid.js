@@ -16,21 +16,22 @@ export const createNewFlow = async (recipient, amount) => {
   })
 
   
-const maticx = await sf.loadSuperToken("CELOx")
+  const celox = await sf.loadSuperToken("CELOx")
 
-  const approveOperation = maticx.approve({ receiver: recipient, amount: ethers.utils.parseUnits(amount).toString() });
+  const approveOperation = celox.transfer({ receiver: recipient, amount });
 
   return await approveOperation.exec(superSigner)
  
 }
 
  export const calculateFlowRate = (amount) => {
+  
   if (Number(amount) === 0) {
     return 0
   }
   const amountInWei = ethers.BigNumber.from(amount)
   const hourlyAmount = ethers.utils.formatEther(amountInWei.toString())
 
-  const calculatedFlowRate = hourlyAmount * 3600 * 30
+  const calculatedFlowRate = hourlyAmount * 3600 * 30 * 24
   return calculatedFlowRate
 }

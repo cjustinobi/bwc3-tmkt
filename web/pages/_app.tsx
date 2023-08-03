@@ -2,11 +2,10 @@ import type { AppProps } from "next/app";
 import {getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import Layout from "../components/Layout";
-import "../styles/globals.css";
-import "@rainbow-me/rainbowkit/styles.css";
-// import { SessionProvider } from "next-auth/react"
-import { celo } from "viem/chains";
-import { publicProvider } from 'wagmi/providers/public';
+import "../styles/globals.css"
+import "@rainbow-me/rainbowkit/styles.css"
+import { celo } from "viem/chains"
+import { publicProvider } from 'wagmi/providers/public'
 
 
 

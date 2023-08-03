@@ -38,8 +38,8 @@ const TransactionCard: React.FC<TransactionCardProps> = ({
 
   const approveHandler = async () => {
     await createNewFlow(vendor, amount)
-    await approve(id.toString(), vendor)
-    getTransactionsHandler()
+    // await approve(id.toString(), vendor)
+    // getTransactionsHandler()
   }
 
   const cancelHandler = async () => {
