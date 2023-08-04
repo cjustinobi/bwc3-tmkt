@@ -2,7 +2,8 @@ import { providers, Contract } from 'ethers'
 import Tmkt from '../Tmkt.json'
 import { priceToWei } from './helpers'
 
-export const contractAddress = '0x3DfC2625D69957d8a7Be29eDD25b74165bE10e60'
+export const contractAddress = '0x3DfC2625D69957d8a7Be29eDD25b74165bE10e60' // mainnet celo
+// export const contractAddress = '0xe2B344831108a130a88981fa93Ae12e98b387316'
 
 
 export async function getContract(useProvider = false) {

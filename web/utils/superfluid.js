@@ -16,11 +16,16 @@ export const createNewFlow = async (recipient, amount) => {
   })
 
   
-  const celox = await sf.loadSuperToken("CELOx")
+  await sf.loadSuperToken("CELOx")
 
-  const approveOperation = celox.transfer({ receiver: recipient, amount });
+  const createFlowOps = sf.cfaV1.createFlow({
+    sender: '0x6ad513fDA973Bf1FC24c04256D686CbE05d714c7',
+    receiver: recipient,
+    flowRate: calculateFlowRate(amount),
+    superToken: '0x96B82B65ACF7072eFEb00502F45757F254c2a0D4'
+  })
 
-  return await approveOperation.exec(superSigner)
+  return await createFlowOps.exec(superSigner)
  
 }
 
